@@ -65,4 +65,13 @@ body {
   padding-bottom: 10px;
 }
 
+/*  NG CONTROLS  */
+.ng-valid[required] {
+  border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+
 

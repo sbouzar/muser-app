@@ -4,6 +4,8 @@ import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {HomeComponent} from './HomeComponent'
 import {SignInComponent} from './SignInComponent'
 import {RegisterComponent} from './RegisterComponent'
+import {RegisterFormComponent} from './RegisterFormComponent';
+
 
 @RouteConfig([
   {path: '/', component: HomeComponent, as: 'Home'},
