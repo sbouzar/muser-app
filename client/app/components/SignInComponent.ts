@@ -3,22 +3,34 @@ import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 
 var html =
     `
-<form method="POST">
-  <div>
+<form>
+  <div class="container">
+    <p class="h3">SIGN IN</p>
     <div class="form-group">
-      <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Email Address" value="" required autofocus />
+      <div class="block">
+        <label>Email Address *</label>
+        <div class="form-group">
+          <input type="email" class="form-control input-custom" id="email" name="email" value="" required autofocus />
+        </div>
+      </div>
     </div>
     <div class="form-group">
-      <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Password" required data-minlength="4" />
+      <div class="block">
+        <label>Password *</label>
+        <input type="password" class="form-control input-custom" id="password" name="password" required data-minlength="4" />
+      </div>
     </div>
     <div class="text-center"><a href="/#">Forgot your password ?</a></div>
-  </div>
-  <div class="btn-group btn-group-justified actionbar-fixed-bottom" role="group" >
-    <div class="btn-group" role="group">
-      <a [routerLink]="['Home']" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-chevron-left pull-left" aria-hidden="true"></span>Go Back</a>
-    </div>
-      <div class="btn-group" role="group">
-        <button type="submit" class="btn btn-primary btn-lg">Sign In<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></button>
+    <div class="form-group">
+      <div class="btn-group m-10" role="group">
+        <a [routerLink]="['Home']" class="btn btn-custom" role="button"><span class="glyphicon glyphicon-chevron-left pull-left" aria-hidden="true"></span>Go Back</a>
+      </div>
+      <div class="btn-group m-10" role="group">
+        <button type="button" class="btn btn-custom">Reset</button>
+      </div>
+      <div class="btn-group m-10" role="group">
+        <button type="submit" class="btn btn-custom">Register<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></button>
+      </div>
     </div>
   </div>
 </form>

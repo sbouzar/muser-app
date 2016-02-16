@@ -7,12 +7,13 @@
 }
 
 .muse {
+  font-family: 'MuseFont', Arial, sans-serif;
   font-size: 57px;
   padding: 8px 0;
 }
 body {
-  background-color: black;
-  font-family: 'MuseFont', Arial, sans-serif;
+  font-family: 'Oswald', Arial, sans-serif;
+  font-weight: normal;
   color: white;
 }
 
@@ -47,9 +48,15 @@ body {
 .mt-50 {
   margin-top: 50px;
 }
+.mt-70 {
+  margin-top: 70px;
+}
 
 .m-0 {
   margin: 0;
+}
+.m-10 {
+  margin: 10px;
 }
 .ml-0 {
   margin-left: 0px;
@@ -60,6 +67,9 @@ body {
 
 .pt-10 {
   padding-top: 10px;
+}
+.pt-15 {
+  padding-top: 15px;
 }
 .pb-10 {
   padding-bottom: 10px;
@@ -74,4 +84,72 @@ body {
   border-left: 5px solid #a94442; /* red */
 }
 
+/* Main Background */
+#bg {
+  position: fixed;
+  z-index: -999;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+img {
+  vertical-align: bottom;
+}
+
+#bg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -999;
+}
+
+/* Media Queries */
+
+@media(max-width: 750px) {
+  #bg img {
+    display: inline;
+    width: auto;
+    height: 100%;
+  }
+  
+}
+
+@media(min-width: 751px) {
+  #bg img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Main */
+#main {
+  background-color: rgba(21,21,21, 0.9);
+}
+
+/* Buttons */
+.btn-custom {
+  border-radius: 0px;
+  border-color: #646464;
+  margin: 0.8em 0;
+  text-transform: uppercase;
+  background-color: #646464;
+  color: #fff;
+}
+
+/* Inputs */
+.input-custom {
+  border-radius: 0px;
+}
+
+/* Blocks */
+.block {
+  background-color: #646464;
+  padding: 15px;
+  margin: 0 0 20px 0;
+}
+
+/* Home */
+.home {
+  padding-bottom: 0.8em;
+}
 
