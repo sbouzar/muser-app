@@ -1,6 +1,17 @@
 import express = require('express');
 import path = require('path');
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var sessionMiddleware = require("express-session")({
+  name: "muser-app",
+  secret: "8ojhgfhe7wn84pom62q",
+  proxy: true,
+  resave: true,
+  saveUninitialized: true
+});
+
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var port: number = process.env.PORT || 3000;
@@ -11,6 +22,24 @@ app.use('/libs', express.static(path.resolve(__dirname, 'libs')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use(sessionMiddleware);
+app.use(passport.initialize());
+app.use(passport.session());
+
+/**
+ * Configure passport strategy
+ */
+var models = require('./models');
+
+passport.serializeUser(models['Muser'].serialize);
+passport.deserializeUser(models['Muser'].deserialize);
+passport.use('local', 
+  new LocalStrategy({ usernameField: 'email', passwordField: 'password', passReqToCallback: true }, models['Muser'].authenticate)
+);
+passport.use('muser-signup', 
+  new LocalStrategy({ usernameField: 'email', passwordField: 'password', passReqToCallback: true }, models['Muser'].muserSignup)
+);
 
 /**
  * Configure database
