@@ -1,12 +1,16 @@
 import express = require('express');
 import path = require('path');
 
+var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var port: number = process.env.PORT || 3000;
 var app = express();
  
 app.use('/app', express.static(path.resolve(__dirname, 'app')));
 app.use('/libs', express.static(path.resolve(__dirname, 'libs')));
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /**
  * Configure database

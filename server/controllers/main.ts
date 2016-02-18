@@ -6,21 +6,17 @@ let mainController = {
     res.sendFile(path.resolve(__dirname, '..', 'index.html'));
   },
   postRegister: (req, res) => {
-		var Muser = models['Muser'];
-		/*var muser = new Muser({
-			username: "Sam",
-			email: "sam@sam.fr",
-			password: "1234"
-		});*/
+		let Muser = models['Muser'];
+		let muser = req.body.muser;
 		Muser.create({
-			username: "Sam",
-			mail: "sam@sam.fr",
-			password: "1234"
-		}, function (err, small) {
+			username: muser.username,
+			email: muser.email,
+			password: muser.password
+		}, function (err, muser) {
 		  if (err) console.log(err);
 			console.log("Saved!");
-		// saved!
-})
+			res.status(200).json({status: 'Registration successful!'});
+		});
   }
   
 }

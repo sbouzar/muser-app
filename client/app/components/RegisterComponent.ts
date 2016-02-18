@@ -1,3 +1,4 @@
+import 'rxjs/Rx'
 import {Component, OnInit} from 'angular2/core';
 import {NgForm} from 'angular2/common';
 import {Muser} from '../models/muser';
@@ -58,7 +59,7 @@ var html =
           <button type="button" class="btn btn-custom" (click)="newMuser()">Reset</button>
         </div>
         <div class="btn-group m-10" role="group">
-          <button (click)=addMuser(model) class="btn btn-custom" [disabled]="!muserForm.form.valid">Register<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></button>
+          <button type="submit" class="btn btn-custom" [disabled]="!muserForm.form.valid">Register<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></button>
         </div>
       </div>
     </div>
@@ -91,7 +92,9 @@ var html =
 
 export class RegisterComponent implements OnInit{
 
-  constructor(private _registerService: RegisterService) {}
+  constructor(
+    private _router: Router,
+    private _registerService: RegisterService) {}
 
   errorMessage: string;
 
@@ -104,10 +107,12 @@ export class RegisterComponent implements OnInit{
           error => this.errorMessage = <any>error);
   }
 
-
   submitted = false;
   //onSubmit() { this.submitted = true }
-  onSubmit() { this.addMuser(this.model) }
+  onSubmit() { 
+    this.addMuser(this.model);
+    this._router.navigate(['Home']);
+  }
 
   active = true;
 
