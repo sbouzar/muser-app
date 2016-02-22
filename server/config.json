@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "muser-app",
+    "password": null,
+    "database": "muserDB",
+    "host": "localhost",
+    "port": "27017",
+    "timezone":  "+01:00"
+  }
+}

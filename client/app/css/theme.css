@@ -149,7 +149,7 @@ img {
 }
 
 /* Home */
-.home {
+.home, .welcome {
   padding-bottom: 0.8em;
 }
 

@@ -8,15 +8,6 @@ let mainController = {
     res.sendFile(path.resolve(__dirname, '..', 'index.html'));
   },
   postRegister: (req, res) => {
-		passport.authenticate('muser-signup', 
-		{
-			failureRedirect: '/register',
-			failureFlash: true
-		},
-			console.log("Saved!"));
-			//res.status(200).json({status: 'Registration successful!'});
-	},
-  /*(req, res) => {
 		let Muser = models['Muser'];
 		let muser = req.body.muser;
 		Muser.create({
@@ -26,18 +17,17 @@ let mainController = {
 		}, function (err, muser) {
 		  if (err) console.log(err);
 			console.log("Saved!");
-			res.status(200).json({status: 'Registration successful!'});
+			res.status(200).json({
+				status: 'Registration successful!',
+				data: muser,
+				url: 'Home'
+			});
 		});
-  },*/
-  postSignIn:
-		passport.authenticate('local',
-			{
-				successRedirect: '/',
-				failureRedirect: '/signin',
-				failureFlash: true
-			})
-  
-  
+  },
+  postSignIn: (req, res) => {
+		console.log(req);
+  }
+		
 }
 
 export default mainController;

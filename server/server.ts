@@ -3,6 +3,7 @@ import path = require('path');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var flash = require('connect-flash');
 
 var sessionMiddleware = require("express-session")({
   name: "muser-app",
@@ -26,19 +27,20 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 /**
  * Configure passport strategy
  */
-var models = require('./models');
+var User = require('./models')['Muser'];
 
-passport.serializeUser(models['Muser'].serialize);
-passport.deserializeUser(models['Muser'].deserialize);
+passport.serializeUser(User.serialize);
+passport.deserializeUser(User.deserialize);
 passport.use('local', 
-  new LocalStrategy({ usernameField: 'email', passwordField: 'password', passReqToCallback: true }, models['Muser'].authenticate)
+  new LocalStrategy({ usernameField: 'email', passwordField: 'password', passReqToCallback: true }, User.authenticate)
 );
 passport.use('muser-signup', 
-  new LocalStrategy({ usernameField: 'email', passwordField: 'password', passReqToCallback: true }, models['Muser'].muserSignup)
+  new LocalStrategy({ usernameField: 'email', passwordField: 'password', passReqToCallback: true }, User.muserSignup)
 );
 
 /**
@@ -58,3 +60,5 @@ var server = app.listen(port, () => {
   var port = server.address().port;
   console.log('This express app is listening on port:' + port);
 });
+
+module.exports = app;

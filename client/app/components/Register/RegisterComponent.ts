@@ -1,7 +1,7 @@
 import 'rxjs/Rx'
 import {Component, OnInit} from 'angular2/core';
 import {NgForm} from 'angular2/common';
-import {Muser} from '../models/muser';
+import {Muser} from '../../models/muser';
 import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 import {HTTP_PROVIDERS}    from 'angular2/http';
 import {RegisterService} from './RegisterService';
@@ -53,13 +53,13 @@ var html =
       </div>
       <div class="form-group" role="group">
         <div class="btn-group m-10" role="group">
-          <a [routerLink]="['Home']" class="btn btn-custom" role="button"><span class="glyphicon glyphicon-chevron-left pull-left" aria-hidden="true"></span>Go Back</a>
+          <a [routerLink]="['Welcome']" class="btn btn-custom" role="button"><span class="glyphicon glyphicon-chevron-left pull-left" aria-hidden="true"></span>Go Back</a>
         </div>
         <div class="btn-group m-10" role="group">
           <button type="button" class="btn btn-custom" (click)="newMuser()">Reset</button>
         </div>
         <div class="btn-group m-10" role="group">
-          <button type="submit" class="btn btn-custom" [disabled]="!muserForm.form.valid">Register<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></button>
+          <button class="btn btn-custom" [disabled]="!muserForm.form.valid">Register<span class="glyphicon glyphicon-chevron-right pull-right" aria-hidden="true"></span></button>
         </div>
       </div>
     </div>
@@ -103,15 +103,15 @@ export class RegisterComponent implements OnInit{
   addMuser(muser: Muser) {
     if (!muser) { return; }
     this._registerService.addMuser(muser)
-        .subscribe(
-          error => this.errorMessage = <any>error);
+      .subscribe(
+        url => this._router.navigate(['Home']),
+        error => this.errorMessage = <any>error);
   }
 
   submitted = false;
   //onSubmit() { this.submitted = true }
   onSubmit() { 
     this.addMuser(this.model);
-    this._router.navigate(['Home']);
   }
 
   active = true;

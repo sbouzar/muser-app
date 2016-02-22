@@ -4,7 +4,7 @@ import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
 
 var html = 
 `
-<div id="home" class="text-center">
+<div id="welcome" class="text-center">
   <header class="mt-50 pt-15">
     <div class="muse"><span class="whitestripes-lg">MUSE</span></div>
     <div class="h4">Are you a true Muser?</div>
@@ -21,12 +21,12 @@ var html =
 `;
 
 @Component({
-  selector: 'home',
+  selector: 'welcome',
   template: html,
   directives: [ROUTER_DIRECTIVES]
 })
 
-export class HomeComponent implements OnInit {
+export class WelcomeComponent implements OnInit {
 
   constructor() { }
 
