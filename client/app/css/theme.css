@@ -6,11 +6,31 @@
   src: local('Muse Font'), local('Muse'), url('../fonts/NeueFrutigerComBlack.otf') format('truetype');
 }
 
+/* Logos */
 .muse {
   font-family: 'MuseFont', Arial, sans-serif;
   font-size: 57px;
   padding: 8px 0;
 }
+
+.muse-sm {
+  font-family: 'MuseFont', Arial, sans-serif;
+  font-size: 14px;
+}
+
+/* Navbar */
+.navbar-custom {
+  margin-bottom: 0;
+}
+.burger-custom {
+  border: 1px solid #fff;
+  border-radius: 0;
+}
+.burger-custom span {
+  background-color: #337ab7;
+}
+
+
 body {
   font-family: 'Oswald', Arial, sans-serif;
   font-weight: normal;
@@ -29,14 +49,17 @@ body {
 
 // Utils
 
+.mb-0 {
+  margin-bottom: 0;
+}
 .mb-10 {
-  margin-bottom: 10px !important;
+  margin-bottom: 10px;
 }
 .mb-20 {
-  margin-bottom: 20px !important;
+  margin-bottom: 20px;
 }
 .mb-50 {
-  margin-bottom: 50px !important;
+  margin-bottom: 50px;
 }
 
 .mt-10 {
