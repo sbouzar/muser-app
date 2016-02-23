@@ -17,7 +17,16 @@ import {RegisterService} from './Register/RegisterService';
 ])
 @Component({
   selector: 'my-app',
-  template: '<router-outlet></router-outlet>',
+  template: `
+    <div id="bg">
+      <img src="app/images/drones.jpg" alt="Drones">
+    </div>
+    <div class="container">
+      <main id="main">
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+    `,
   directives: [ROUTER_DIRECTIVES],
   providers: [HTTP_PROVIDERS, RegisterService]
 
