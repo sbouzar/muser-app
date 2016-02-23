@@ -56,7 +56,9 @@ gulp.task('build:index', function() {
     .pipe(gulp.dest('dist/app/fonts'))
   var copyImages = gulp.src('client/app/images/*')
     .pipe(gulp.dest('dist/app/images'))
-  return [copyJsNPMDependencies, copyIndex, copyStyles, copyFonts, copyImages];
+  var copyViews = gulp.src('client/app/components/views/*.html')
+    .pipe(gulp.dest('dist/app/components/views'))
+  return [copyJsNPMDependencies, copyIndex, copyStyles, copyFonts, copyImages, copyViews];
 });
 
 gulp.task('build:app', function() {
