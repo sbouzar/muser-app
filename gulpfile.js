@@ -22,6 +22,15 @@ gulp.task('build:server', function() {
     .pipe(gulp.dest('dist'))
 });
 
+// MOMENT
+gulp.task('build:moment', function () {
+  return gulp.src('typings/browser/*.ts')
+    .pipe(ts({
+      noImplicitAny: true,
+      out: 'moment.js'
+    }))
+    .pipe(gulp.dest('dist/libs'));
+});
 
 // CLIENT
 
@@ -29,11 +38,13 @@ gulp.task('build:server', function() {
   jsNPMDependencies, sometimes order matters here! so becareful!
 */
 var jsNPMDependencies = [
+  'moment/moment.js',
   'angular2/bundles/angular2-polyfills.js',
   'systemjs/dist/system.src.js',
   'rxjs/bundles/Rx.js',
   'angular2/bundles/angular2.dev.js',
-  'angular2/bundles/router.dev.js'
+  'angular2/bundles/router.dev.js',
+  'ng2-bootstrap/bundles/ng2-bootstrap.min.js'
 ]
 
 gulp.task('build:index', function() {
@@ -58,6 +69,7 @@ gulp.task('build:index', function() {
     .pipe(gulp.dest('dist/app/images'))
   var copyViews = gulp.src('client/app/components/views/*.html')
     .pipe(gulp.dest('dist/app/components/views'))
+
   return [copyJsNPMDependencies, copyIndex, copyStyles, copyFonts, copyImages, copyViews];
 });
 
@@ -73,7 +85,7 @@ gulp.task('build:app', function() {
 
 
 gulp.task('build', function(callback) {
-  runSequence('clean', 'build:server', 'build:index', 'build:app', callback);
+  runSequence('clean', 'build:server', 'build:moment', 'build:index', 'build:app', callback);
 });
 
 gulp.task('default', ['build']);

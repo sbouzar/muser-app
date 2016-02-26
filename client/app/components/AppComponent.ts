@@ -1,3 +1,5 @@
+/// <reference path="../../../typings/browser/definitions/moment/moment.d.ts" />
+
 import 'rxjs/Rx'
 import {Component} from 'angular2/core';
 import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
