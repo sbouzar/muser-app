@@ -1,25 +1,22 @@
 <header>
 <nav class="navbar navbar-custom">
-  <div>
+  <div (click)="$event.preventDefault()">
     <div class="navbar navbar-custom">
-      <div class="navbar-header">
-        <button type="button" (click)="toggle()" class="navbar-toggle burger-custom">
-          <span class="sr-only">Navigation</span>
+      <div class="navbar-header" dropdown>
+        <button id="single-button" type="button" class="navbar-toggle burger-custom" dropdownToggle>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <ul class="dropdown-menu-custom dropdown-menu nav navbar-nav text-right container" role="menu" aria-labelledby="single-button">
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['Register']">HOME</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['Home']">ALBUMS</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['Home']">SONGS</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['Home']">PERFORMANCES</a></li>
+          <li role="menuitem"><a class="dropdown-item" [routerLink]="['Home']">LOG OUT</a></li>
+        </ul>
         <div class="muse-sm navbar-brand"><span class="whitestripes">MUSE</span></div>
       </div>
-    </div>
-    <div [collapse]="isCollapsed">
-      <ul class="nav navbar-nav text-right container">
-        <li><a [routerLink]="['Register']">HOME</a></li>
-        <li><a [routerLink]="['Home']">ALBUMS</a></li>
-        <li><a [routerLink]="['Home']">SONGS</a></li>
-        <li><a [routerLink]="['Home']">PERFORMANCES</a></li>
-        <li><a [routerLink]="['Home']">LOG OUT</a></li>
-      </ul>
     </div>
   </div>
 </nav>

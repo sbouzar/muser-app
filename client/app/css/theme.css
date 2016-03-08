@@ -21,6 +21,7 @@
 /* Navbar */
 .navbar-custom {
   margin-bottom: 0;
+  border: none;
 }
 .burger-custom {
   border: 1px solid #fff;
@@ -28,6 +29,16 @@
 }
 .burger-custom span {
   background-color: #337ab7;
+}
+.dropdown-menu-custom {
+  margin: 7.5px 0 0.4em;
+  text-align: right;
+  min-width: 100%;
+  border-radius: 0;
+}
+
+.dropdown-menu-custom > li > a {
+  color: #337ab7;
 }
 
 
