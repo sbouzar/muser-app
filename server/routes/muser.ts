@@ -7,7 +7,7 @@ import mainController from '../controllers/main';
 
 router.post('/register', mainController.postRegister);
 
-router.post('/signin', mainController.postSignIn);
+router.post('/signin', passport.authenticate('local'), mainController.postSignIn);
 
 
 

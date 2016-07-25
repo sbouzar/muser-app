@@ -10,7 +10,7 @@
     "start": "gulp && node dist/server.js"
   },
   "dependencies": {
-    "angular2": "2.0.0-beta.1",
+    "angular2": "2.0.0-beta.17",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "connect-flash": "^0.1.1",

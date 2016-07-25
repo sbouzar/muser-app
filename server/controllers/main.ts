@@ -25,9 +25,19 @@ let mainController = {
 		});
   },
   postSignIn: (req, res) => {
-		console.log(req);
-  }
-		
+		console.log("Logged!");
+		/*res.status(200).json({
+			status: 'Log successful!',
+			data: req.muser,
+			url: 'Home'
+		});*/
+	}
+	
+
+  /*(req, res, body) => {
+		models['Muser'].authenticate(req, body.username, body.password);
+  }*/
+
 }
 
 export default mainController;
