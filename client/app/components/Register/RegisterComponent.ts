@@ -1,18 +1,15 @@
 import 'rxjs/Rx'
-import {Component, OnInit} from 'angular2/core';
-import {NgForm} from 'angular2/common';
+import {Component, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
 import {Muser} from '../../models/muser';
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {HTTP_PROVIDERS}    from 'angular2/http';
+import {Router} from '@angular/router'
 import {RegisterService} from './RegisterService';
 
 @Component({
   selector: 'register',
   templateUrl: 'app/components/views/RegisterComponent.html',
-  directives: [ROUTER_DIRECTIVES],
   providers: [
-    HTTP_PROVIDERS,
-    RegisterService,
+    RegisterService
   ]
 })
 

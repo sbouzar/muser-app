@@ -15,7 +15,7 @@ gulp.task('build:server', function() {
   var tsProject = ts.createProject('server/tsconfig.json');
   var tsResult = gulp.src('server/**/*.ts')
     .pipe(sourcemaps.init())
-    .pipe(ts(tsProject))
+    .pipe(tsProject())
   return tsResult.js
     //.pipe(concat('server.js'))
     .pipe(sourcemaps.write())
@@ -39,11 +39,8 @@ gulp.task('build:moment', function () {
 */
 var jsNPMDependencies = [
   'moment/moment.js',
-  'angular2/bundles/angular2-polyfills.js',
   'systemjs/dist/system.src.js',
   'rxjs/bundles/Rx.js',
-  'angular2/bundles/angular2.dev.js',
-  'angular2/bundles/router.dev.js',
   'ng2-bootstrap/bundles/ng2-bootstrap.min.js'
 ]
 
@@ -77,7 +74,7 @@ gulp.task('build:app', function() {
   var tsProject = ts.createProject('client/tsconfig.json');
   var tsResult = gulp.src('client/**/*.ts')
     .pipe(sourcemaps.init())
-    .pipe(ts(tsProject))
+    .pipe(tsProject())
   return tsResult.js
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'))

@@ -1,11 +1,9 @@
-import {Component, OnInit} from 'angular2/core';
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {DROPDOWN_DIRECTIVES} from 'ng2-bootstrap/ng2-bootstrap';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'muser-menu',
-  templateUrl: 'app/components/views/NavComponent.html',
-  directives: [ROUTER_DIRECTIVES, DROPDOWN_DIRECTIVES]
+  templateUrl: 'app/components/views/NavComponent.html'
 })
 
 export class NavComponent implements OnInit {

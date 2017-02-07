@@ -1,12 +1,11 @@
 import 'rxjs/Rx'
-import {Component, OnInit} from 'angular2/core';
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router'
 import {NavComponent} from './../Nav/NavComponent'
 
 @Component({
   selector: 'home',
-  templateUrl: 'app/components/views/HomeComponent.html',
-  directives: [ROUTER_DIRECTIVES, NavComponent]
+  templateUrl: 'app/components/views/HomeComponent.html'
 })
 
 export class HomeComponent implements OnInit {

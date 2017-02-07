@@ -1,9 +1,11 @@
 /// <reference path="../../../typings/browser/definitions/moment/moment.d.ts" />
 
 import 'rxjs/Rx'
-import {Component} from 'angular2/core';
-import {Router, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router'
-import {HTTP_PROVIDERS}    from 'angular2/http';
+import {Component, NgModule} from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+//import {HTTP_PROVIDERS}    from '@angular/http';
+
+import {BrowserModule} from '@angular/platform-browser'
 
 import {WelcomeComponent} from './WelcomeComponent'
 import {HomeComponent} from './Home/HomeComponent'
@@ -11,12 +13,12 @@ import {SignInComponent} from './SignIn/SignInComponent'
 import {RegisterComponent} from './Register/RegisterComponent'
 import {RegisterService} from './Register/RegisterService';
 
-@RouteConfig([
-  {path: '/', component: WelcomeComponent, as: 'Welcome'},
-  {path: '/signin', component: SignInComponent, as: 'SignIn'},
-  {path: '/register', component: RegisterComponent, as: 'Register'},
-  {path: '/home', component: HomeComponent, as: 'Home'}
-])
+const appRoutes: Routes = [
+  {path: '/', component: WelcomeComponent, outlet: 'Welcome'},
+  {path: '/signin', component: SignInComponent, outlet: 'SignIn'},
+  {path: '/register', component: RegisterComponent, outlet: 'Register'},
+  {path: '/home', component: HomeComponent, outlet: 'Home'}
+];
 @Component({
   selector: 'my-app',
   template: `
@@ -29,10 +31,20 @@ import {RegisterService} from './Register/RegisterService';
       </main>
     </div>
     `,
-  directives: [ROUTER_DIRECTIVES],
-  providers: [HTTP_PROVIDERS, RegisterService]
+  //directives: [ROUTER_DIRECTIVES],
+  providers: [RegisterService]
 
 })
+
+@NgModule({
+  imports:      [ 
+    BrowserModule,
+    RouterModule.forRoot(appRoutes) 
+  ],
+  declarations: [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+
 export class AppComponent { 
   
   constructor(){
